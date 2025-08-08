@@ -1,0 +1,294 @@
+% 		INSTRUCTIVO PARA CONSTRUIR EL ENSAYO DE FICCIÓN EN LATEX
+%					v.1.3
+%				elaborado por @rmuriel
+%		---------------------------------------------------
+		
+% Este instructivo se crea para facilitar la comprensión sobre la estructura de un trabajo escrito en LaTeX, y de paso para que se comprenda una forma (entre las miles que existen) en que se podría construir un «ensayo de ficción».
+
+% Antes de empezar, para algunos será útil que lo diga, se observará que el documento está dividido en títulos en mayúscula y comentarios en color azul (como este). Corresponden a las partes habituales de un documento LaTeX y mis explicaciones. La parte que van a modificar se llama «CUERPO DEL DOCUMENTO». No tienen que saber código LaTeX para hacer este trabajo, sólo se dejan guiar por esta plantilla y listo. Más allá de leer juiciosamente este instructivo, no necesitan más!! :)
+
+% Lo que esté en latín y en color negro es lo que ustedes van a modificar. Verán que es muy fácil... abran la mente y déjense guiar! :)
+
+% Comencemos!! 
+
+%================================================================»
+% 0 - RAZONES POR LAS QUE HACEMOS ESTE TRABAJO EN LATEX
+%================================================================»
+
+% 1. LaTeX es el lenguaje del mundo académico. Las mejores universidades del mundo funcionan así, en todas existe al menos una cátedra permanente de LaTeX. En Colombia, lastimosamente, sólo lo usa la Universidad Nacional, la Universidad de Antioquia y la Universidad de los Andes. Cada una de estas universidades tiene formatos (plantillas LaTeX) para trabajos de semestre, tesis, informes de laboratorio, ensayos y exámenes parciales. 
+
+% 2. En dos aspectos importantes es el procesador de texto más efectivo que existe: rendimiento de la máquina (no hace que se cuelgue) y acabado editorial del documento (La forma final del documento es profesional y responde a los cánones editoriales internacionales).
+
+% 3. Es software libre y multiplataforma. Se puede trabajar desde casi cualquier sistema operativo respetable. No necesita ser pirateado y está disponible para su descarga las 24 horas del día. Sin contar con que existe https://www.writelatex.com, que hace el trabajo mucho más cómodo de manera online. 
+
+% 4. Automatiza procedimientos mecánicos típicos en la construcción de documentos:  autonumeración de fórmulas, generación de listas, creación de índices de contenido, de tablas, figuras y terminológicos, etc. 
+
+% 5. La preocupación por la forma se la deja uno al computador. Uno no tiene que pensar en las márgenes, en las negritas de los títulos, en el tipo de letra, etc... De esas formalidades se encarga LaTeX... Uno sólo se concentra en producir contenido, que es para eso que se inventaron los procesadores de texto en una computadora. Preocuparse por la forma es como si no se hubiera superado la época de la máquina de escribir. 
+
+% 6. Permite el uso de bases de datos bibliográficas con BibTeX. Se ahorra tiempo a la hora de citar textos y hacer listados de publicaciones. Basta con hacer una vez la base bibliográfica y uno sólo debe «llamar» las referencias usadas para cualquier cantidad de textos que uno escriba. En esto LaTeX está conectado con Mendeley, la base de datos bibliográfica más importante de la actualidad en el mundo académico. 
+
+% y como si esto fuera poco...
+
+% 7. Con LaTeX se permiten hacer comentarios en cualquier sección del texto sin que aparezcan en el documento final. Basta con introducir un signo de porcentaje (%) antes de empezar a escribirlos. 
+
+% De modo que... empecemos desde ya a usar LaTeX!!!!
+
+%================================================================»
+% I - PREÁMBULO
+%================================================================»
+
+% Antes de escribir el texto como tal, para LaTeX es importante clarificar algunos aspectos básicos sobre la naturaleza del documento que se va a escribir. Esta primera parte se llama «PREÁMBULO» y es el lugar donde se clarifican los siguientes aspectos:
+
+% - Tamaño de hoja y de fuente
+% - Tipo de documento: libro, artículo, informe, etc.
+% - Paquetes de información: español, márgenes, copiado pdf, colores, gráficos, etc. 
+% - Autor, título y fecha
+% - Algunos ajustes a la estética del documento general
+
+%----------------------------------------------------------------»
+% a - Definición de la Clase del Documento 
+%----------------------------------------------------------------»
+
+\documentclass[11pt,letterpaper]{article}
+
+%----------------------------------------------------------------»
+% b - Paquetes para trabajar en español 
+%----------------------------------------------------------------»
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+%----------------------------------------------------------------»
+% c - Paquetes para solucionar el copiado del pdf
+%----------------------------------------------------------------»
+
+\usepackage{times}		
+\usepackage[T1]{fontenc}	
+
+%----------------------------------------------------------------»
+% d - Paquetes especiales (Según las necesidades del documento)
+%----------------------------------------------------------------»
+
+\usepackage[colorinlistoftodos]{todonotes} %Para insertar notas al lado
+\usepackage{graphicx} %Para usar imágenes
+\usepackage{tikz} %Para construir gráficos con código
+\usepackage{epigraph} %Hacer epígrafes
+\usepackage{multicol} %Construir múltiples columnas en el documento
+\usepackage{color} %Para darle color a la fuentes
+\usepackage{soul} %Para tachar palabras
+\usepackage{ulem} %Para subrayados y tachados especiales (\uuline, \uwave, \xout) Aunque casi nunca se usan, a veces pueden introducirse para remarcar algo. 
+
+%----------------------------------------------------------------»
+% e - Paquete para generar links (Si el doc. tiene hipervínculos)
+%----------------------------------------------------------------»
+
+\usepackage[backref]{hyperref}	% Soporte para generación de Links - Ojalá siempre el último paquete nombrado
+\hypersetup{pdfborder={0 0 0}}	% Quitarle los bordes a los links
+
+%----------------------------------------------------------------»
+% f - Arreglos sobre la estética de los párrafos (Opcional)
+%----------------------------------------------------------------»
+
+\setlength\parindent{0pt}	% Si se quiere suprimir la sangría de los párrafos
+\setlength{\parskip}{2mm}	% Si se quiere espaciar todos los párrafos
+
+%----------------------------------------------------------------»
+% g - Autor, título y fecha del Documento
+%----------------------------------------------------------------»
+
+\author{Marlon Orlando Ramiez L.\thanks{7690-18-14490, Ingenieria en Sistemas de Informacion, Universidad Mariano Galvez de Guatemala, 2025 }}
+\title{¿Cómo elegir la arquitectura de la aplicación según su tipo?}
+\date{\today} 
+
+%================================================================»
+% II - CUERPO DEL DOCUMENTO
+%================================================================»
+
+% Después de todo el preámbulo nos adentramos en la escritura del trabajo. El CUERPO DEL DOCUMENTO en LaTeX siempre inicia con las siguientes dos instrucciones:
+
+\begin{document}
+\maketitle
+
+% En el CUERPO DEL DOCUMENTO es donde vamos a encontrar:
+
+% - Abstract
+% - Secciones y subsecciones
+% - Tabla de contenido
+% - Tablas
+% - Gráficos
+% - Notas al pie y al márgen
+% - Párrafos especiales (cita)
+% - Bibliografía
+
+%----------------------------------------------------------------»
+% a - Creación del resumen (Abstract)
+%----------------------------------------------------------------»
+
+% El abstract es el resumen del ensayo. Se expone, entre cuatro y siete líneas, la naturaleza del escrito, su tema, el tipo de indagación y los intereses del texto. 
+
+\begin{abstract}
+
+\end{abstract}
+
+%----------------------------------------------------------------»
+% b - Escribir el Epígrafe (Opcional)
+%----------------------------------------------------------------»
+
+% Uno puede escribir o no un epígrafe al principio de un ensayo. Ustedes quizá lo han visto con frecuencia en diferentes tipos de escritos (ensayos, novelas, etc.) - Lo importante es que el epígrafe aluda a algo importante que usted quiere comunicar en el ensayo. 
+
+
+%----------------------------------------------------------------»
+% c - Inicio de las secciones del documento
+%----------------------------------------------------------------»
+
+\section*{Introducción} % La instrucción  \section con el signo * hace que no quede numerado.
+
+
+% En la «Introducción» se escribe una preparación a la discertación. La idea es atrapar al lector con sus propios intereses. Hacerle caer en cuenta que a él le gustaría leer sobre lo que usted le va a contar, especialmente le gustaría saber las razones por las cuales él debería ser un inventor como usted!!
+
+La arquitectura de una aplicación lo podemos ver como el modelo de como trabajaremos nuestra aplicaciones que herramientas o materiales vamos a utilizar para nuestro proyecto, ejemplo la arquitectura de aplicaciones es como los planos de una casa, la casa es nuestro proyecto o aplicación y los planos no ayudan a  construirlas, para ello tenemos varias tipos de arquitecturas como lo son los más famosos cliente – servidor, monolíticos los de que se basan en microservicios etc., los cuales cada uno tiene su ventaja y desventajas.
+\underline{}. 
+
+
+% ----------------------
+% La intrucción \underline se usa para subrayar frases. 
+% ----------------------
+
+\section{Razón No.1}
+
+% Aquí se empieza con los argumentos. El título de cada uno de ellos puede modificarse y ser más acorde con el tipo de argumento que va a ofrecer. Recuerde que se trata de RAZONES y no de OPINIONES. 
+
+Continuando con la pregunta de que tipo de arquitectura elegir, esto puede ser muy abstracto a la hora de elegir pero para ello podemos hacernos varias preguntas, como pueden ser, ¿cuál es el jiro del negocio?, ¿qué infraestructura pose la empresa o negocio?, ¿en cual será el presupuesto de cliente?, a que objetivo va dirigido la aplicación, o que función tendrá, al tener ya estas preguntas podemos trazarnos unos objetivos como pueden ser empresariales, la cual será en base a las respuestas de las preguntas anteriores, también debemos ver los requisitos funcionales esto no es mas que, definir las funcionalidades y funciones específicas que la aplicación debe ofrecer para satisfacer las necesidades de los usuarios y los procesos de negocio, como también captura de historias de usuario, detallar las expectativas funcionales, como la autenticación del usuario, la entrada de datos, el procesamiento de datos, la generación de informes y las integraciones con otros sistemas.  
+
+
+% ----------------------
+% Se van a dar cuenta de que el subrayado con \underline no funciona si lo que quieren es subrayar un párrafo completo, esta instrucción se usa sólo en palabras o frases cortas. 
+% ----------------------
+
+\begin{quote}
+
+\end{quote}
+
+
+
+% ----------------------
+% La instrucción \footnote{} es para hacer pies de página. Como se ve en el resultado en PDF, generan un numerito consecutivo, a la manera habitual de los pies de página de los artículos o libros de ciencia. 
+% ----------------------
+
+ 
+
+\section{Razón No.2}
+
+También debemos de considerar los requisitos técnicos como son, Recursos de Software y Hardware disponibles, requisitos de red y conectividad, compatibilidad de sistemas, regulaciones de seguridad y etc., 
+
+
+
+% Este apartado se construye en dos columnas. Eso es gracias al paquete «multicol» que escribimos en el «preámbulo». Determinamos la cantidad de columnas dentro del segundo corchete del ambiente «multicols», tal y como sigue:
+
+\begin{multicols}{2}
+
+\end{multicols}
+
+
+\section{Razón No.3}
+
+Ahora con toda esta información que podemos obtener de cliente o bien de una investigación previa, ¿cuál es la mejor arquitectura que puedo aplicar como diseñador?, podemos ver un poco de lo que nos ofrece cada una de las diferentes arquitecturas comencemos viendo las que podemos decir cuáles son las mas fáciles y prácticas:
+
+Cliente-Servidor este es más básico se base en un servidor brinda un servicio a un cliente directamente es una comunicación más rápida ya que todo se encuentra en el mismo lugar, pero eso mismo al ser una conexión muy directa puede traer problemas con virus, troyanos y phishing.
+
+Red entre pares este también es un dice básico muy utilizado ya que consistes en convertir una gran cantidad de datos, a diferentes modelos de cliente – servidor esto lo podemos ver como una red descentralizada, esto quiere decir que no necesita de un servidor central, la desventaja que podemos notar es que si uno de los pares es infectado por un virus este llegara a los demás a través de la red.
+Modelo-vista-controlador este es un modelo un poco mas complejo ya que se base en tres componentes modelo, vista y controlador El modelo se hace cargo de los datos, ya sean actualizaciones, búsquedas u otros. El controlador recibe las órdenes del cliente para, posteriormente, solicitar los datos al modelo y comunicar a la vista, que es la representación visual de los datos, la desventaja que podemos ver es que tiene un patrón complejo por que los desarrolladores deben esta familiarizados con este.
+Arquitectura orientada a eventos, esta arquitectura es asíncrona y distribuida, utilizada principalmente para la creación de aplicaciones escalables esto quiere decir que sus componentes no se comunican de forma síncrona, este tipo de arquitectura es mas orienta a empresas que necesitan atender millones de solicitudes, desventaja las soluciones asíncronas son difíciles de decodifica.
+Arquitectura de Microservicios, esta es una de las más buscadas en la actualidad, ya que consiste en la creación de componentes de software que se dedican a realizar una única tarea y son autosuficientes, por lo que evolucionan de forma independiente, es a lo que llamamos pequeños programas, este puede evolucionar a la velocidad requerida y cada microservicio se puede desarrollar con distintas tecnologías.
+Arquitectura en capas (multicapa) este sistema se organiza en capas bien definidas, donde cada una tiene una responsabilidad específica. Las capas más comunes son: presentación (interfaz de usuario), lógica de negocio, acceso a datos y, en algunos casos, una capa de servicios o API. Es uno de los estilos más utilizados en aplicaciones empresariales tradicionales.
+
+Arquitectura hexagonal este enfoque busca aislar el núcleo de la aplicación (la lógica de negocio) de cualquier dependencia externa como bases de datos, interfaces web, sistemas de mensajería o API `s de terceros. Esto se logra mediante puertos (interfaces definidas por el dominio) y adaptadores (implementaciones concretas para esas interfaces). El principal beneficio es que facilita las pruebas unitarias, la flexibilidad tecnológica y la sustitución de componentes externos sin afectar el núcleo de la aplicación. 
+
+Arquitectura monolítica este tiene un enfoque, todos los componentes y funcionalidades de la aplicación están integrados en una única base de código y se despliegan como una sola unidad ejecutable. Es una solución sencilla y rápida de implementar para aplicaciones pequeñas o medianas.
+
+
+\section{Razón No.4}
+
+Veamos unos ejemplo de donde puedo utilizar algún diseño de arquitectura especifica,  
+
+Un ejemplo de arquitectura en capas es el diseño de una aplicación web típica. La interfaz de usuario (UI) forma la capa de presentación.
+
+Un ejemplo de SOA es un sistema bancario donde servicios como el procesamiento de tarjetas de crédito, la gestión de datos de clientes y el procesamiento de préstamos se exponen como servicios separados para diversas aplicaciones de consumo.
+
+Netflix es un excelente ejemplo de una aplicación basada en una arquitectura de microservicios.
+
+Un ejemplo de arquitectura basada en eventos es una aplicación de chat en tiempo real. Aquí, los mensajes de usuario son eventos que activan respuestas del servidor y actualizaciones de las interfaces de otros usuarios.
+
+
+
+
+\section{Conclusión}
+
+La arquitetura de aplicaciones es una parte fundamental a la hora de inciar con un nuevo proyecto ya que son la base de un nuevo proyecto de aplicaciones hablando a nivel de software, es muy importate de elegir un buen diseño para el tipo de aplicacion que desarrollaremos, tenemos que tener en cuenta varios factores que nos guiaran a el desarrollo de un buena aplicacion como lo pueden ser que tipo de nececisad tiene el usuario, que es lo que queremos mejorar o bien tener una mejor eficiencia en alguna industria especifica, tambien devemos de tomar en cuenta el tema monetario que es algo muy importante tambien en tomar en cuenta, por lo que este enseyo nos ayudara de guia para ver que diseño es mejor que se acopla a nuestro proyecto.
+
+
+%----------------------------------------------------------------»
+% c - Bibliografía
+%----------------------------------------------------------------»
+
+% El entorno «thebibliography» nos sirve para construir la bibliografía. Cada \bibtem es una referencia que hemos usado en nuestro documento. 
+
+% Para citar las referencias usamos el comando \cite{etiqueta}, tal y como se hizo en el último párrafo de esta plantilla.  Por supuesto, la «etiqueta» es el nombre que le hemos dado a la referencia. En el caso del primer libro de esta bibliografía vemos que la etiqueta es «ejemplo», las otras son «libro1», «libro2», etc. Usted puede usar cualquier etiqueta siempre y cuando no se repita en otra referencia. Cada referencia tiene etiqueta única.
+
+\begin{thebibliography}{99}
+
+
+\bibitem{website1} Documentación de Oracle Cloud Infrastructure: \url{https://docs.oracle.com/es-ww/iaas/Content/cloud-adoption-framework/ea-application-architecture.htm} 
+
+\bibitem{website1} Arquitectura de Software: Tipos y Diferencias : \url{https://teclab.edu.ar/tecnologia-y-desarrollo/tipos-de-arquitecturas-de-software\\
+-cuales-hay-y-en-que-se-diferencian/l}
+
+\bibitem{website1} Arquitectura de la aplicación: 6 patrones comunes y cómo elegir :  \url{https://www.codesee.io/learning-center/application-architecture}
+
+\end{thebibliography}
+
+%================================================================»
+% EXPLICACIONES FINALES
+%================================================================»
+%----------------------------------------------------------------»
+% Signos en LaTeX
+%----------------------------------------------------------------»
+
+% Como se ha notado, escribir el signo % (porcentaje) produce «comentarios» dentro del código, explicaciones que no son tomadas en cuenta a la hora de «compilar» el código escrito. Si se quiere incorporar un signo % (porcentaje) como parte del texto que se está escribiendo debe escribirse con la barra de instrucción habitual, así: \% 
+
+% Hay otros signos a los que también es necesario antecederlos de la barra \ - Son los siguientes:
+
+% \		carácter inicial de comando			Se escribiría: \tt\char‘\\
+% { }	abre y cierra bloque de código		Se escribiría: \{, \}
+% $		abre y cierra el modo matemático		Se escribiría: \$
+% &		tabulador (en tablas y matrices)		Se escribiría: \&
+% #		señala parámetro en las macros		Se escribiría: \_ , \^{}
+% _, ^	para subíndices y exponentes			Se escribiría: \#
+% ~		para evitar cortes de renglón			Se escribiría: \~{}
+
+%----------------------------------------------------------------»
+% Cambios en la estética de las palabras
+%----------------------------------------------------------------»
+
+% Este es el listado de las instrucciones básicas:
+
+% - Negrita: 	\textbf{}
+% - Itálica: 	\textit{}
+% - Slanted:		\textsl{}
+% - Sans Serif:	\textsf{}
+% - Versalitas:	\textsc{}
+% - Typewriter: 	\texttt{}
+% - Enfático:	\emph{}
+
+% Lo que se escriba dentro de los corchetes de cada instrucción será lo que se verá modificado en el texto. Ejemplo:
+
+% \sc{Esto es una frase en versalitas}
+
+% Por supuesto, la anterior instrucción no compilará en este documento porque la antece un signo de % (porcentaje), que es el signo de los «comentarios». Pero, pruebe en el texto normal y verá los cambios con cada una de las anteriores instrucciones. 
+
+%--------------------------------»»
+% NOTA IMPORTANTE
+% Si alguien quiere anexar tablas o gráficos al documento, le recomiendo acercarse a la sección que lo explica en los manuales, guías o instructivos que están en BlackBoard. 
+%--------------------------------»»
+
+\end{document}
